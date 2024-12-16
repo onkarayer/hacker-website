@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptic AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Inconsolata', monospace;
+            font-size: 24px;
+            text-align: center;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Glitchy Text */
+        .glitch {
+            font-size: 3em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: glitch 2s infinite;
+            position: relative;
+            z-index: 10;
+        }
+
+        .glitch:before {
+            content: "We see everything";
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: red;
+            text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+            animation: glitch-anim-2 3s infinite;
+        }
+
+        .glitch:after {
+            content: "We see everything";
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: green;
+            text-shadow: 0 0 10px green, 0 0 20px green, 0 0 30px green;
+            animation: glitch-anim-3 2s infinite;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+
+            25% {
+                transform: translate(-5px, 5px);
+            }
+
+            50% {
+                transform: translate(-5px, -5px);
+            }
+
+            75% {
+                transform: translate(5px, 5px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% {
+                opacity: 1;
+                transform: translate(0);
+            }
+
+            50% {
+                opacity: 0;
+                transform: translate(-5px, 5px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate(0);
+            }
+        }
+
+        @keyframes glitch-anim-3 {
+            0% {
+                opacity: 1;
+                transform: translate(0);
+            }
+
+            50% {
+                opacity: 0;
+                transform: translate(5px, -5px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate(0);
+            }
+        }
+
+        /* Conspiracy Theory Popup Styles */
+        .conspiracy-theory {
+            position: absolute;
+            color: #ff0000;
+            font-size: 1.2em;
+            opacity: 0;
+            animation: fadeInOut 5s infinite;
+            pointer-events: none;
+            text-shadow: 0 0 10px red, 0 0 20px red;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Random Movement and Fade-in/out for Conspiracy Text */
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                transform: translate(0);
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-100px, -100px);
+            }
+        }
+
+        /* Background Animation */
+        @keyframes backgroundNoise {
+            0% {
+                background-color: #000;
+            }
+
+            50% {
+                background-color: #111;
+            }
+
+            100% {
+                background-color: #000;
+            }
+        }
+
+        body {
+            animation: backgroundNoise 3s infinite;
+        }
+
+        /* Footer */
+        #footer {
+            position: fixed;
+            bottom: 20px;
+            font-size: 1em;
+            color: #999;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Main Glitchy Text -->
+    <div class="glitch">We see everything</div>
+
+    <!-- Footer Section -->
+    <div id="footer">
+        Powered by Cryptic AI | Unauthorized access detected.
+    </div>
+
+    <script>
+        // Conspiracy theories array
+        const conspiracyTheories = [
+            "The government controls your thoughts.",
+            "We are living in a simulation.",
+            "Aliens have already made contact.",
+            "They can track your every move through your phone.",
+            "The moon landing was faked.",
+            "The Illuminati controls the world economy.",
+            "5G towers are used to control minds.",
+            "Your personal data is being sold to the highest bidder.",
+            "The sun is a giant hologram.",
+            "Time travel experiments have already begun.",
+        ];
+
+        // Function to generate random conspiracy theory
+        function generateConspiracy() {
+            const randomTheory = conspiracyTheories[Math.floor(Math.random() * conspiracyTheories.length)];
+
+            // Create a new conspiracy element
+            const conspiracyElement = document.createElement("div");
+            conspiracyElement.classList.add("conspiracy-theory");
+            conspiracyElement.textContent = randomTheory;
+
+            // Randomly position the conspiracy element
+            conspiracyElement.style.top = Math.random() * 80 + "%";
+            conspiracyElement.style.left = Math.random() * 80 + "%";
+
+            // Append the new conspiracy element to the body
+            document.body.appendChild(conspiracyElement);
+
+            // Remove the conspiracy element after the animation finishes
+            setTimeout(() => {
+                conspiracyElement.remove();
+            }, 5000);
+        }
+
+        // Generate a conspiracy every 3 seconds
+        setInterval(generateConspiracy, 3000);
+    </script>
+
+</body>
+
+</html>
+
+    
+
+
+
+
+
+
+
+
